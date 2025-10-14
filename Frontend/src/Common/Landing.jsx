@@ -1,6 +1,6 @@
 import React from 'react'
-import hero from './assets/heroImage3.jpg'
-import icon from './assets/seethrough.png'
+import hero from '../assets/heroImage3.jpg'
+import icon from '../assets/seethrough.png'
 
 function Landing() {
   return (

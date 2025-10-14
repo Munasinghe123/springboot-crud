@@ -2,7 +2,7 @@ import React from 'react'
 import image from '../assets/heroImage3.jpg'
 import { useState } from 'react'
 import axios from 'axios';
-import useNavigate from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 function Register() {
 
@@ -30,7 +30,7 @@ function Register() {
                 return
             }
 
-            const response = await axios.post(`http://localhost:8080/auth/register`,
+            const response = await axios.post(`http://localhost:8080/auth/register`,   
                 {
                     name: name.trim(),
                     email: email.trim().toLowerCase(),
