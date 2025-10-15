@@ -10,7 +10,7 @@ import com.example.Smart_Waste_Management_System.Waste_Management.model.UserMode
 
 public interface UserRepository extends MongoRepository<UserModel,String> {
 
-    boolean exixtsByEmailIgnoreCase(String email);
+    boolean existsByEmailIgnoreCase(String email);
 
     Optional<UserModel>findByEmailIgnoreCase(String email);
 } 

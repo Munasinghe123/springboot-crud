@@ -26,6 +26,7 @@ public class SecurityConfig {
             .cors(Customizer.withDefaults())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/bins").permitAll()
                 .anyRequest().permitAll() 
             );
         return http.build();

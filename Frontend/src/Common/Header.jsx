@@ -25,6 +25,7 @@ function Header() {
       <div className='space-x-5'>
         <Link to="/login" className=' rounded-4xl p-2 bg-blue-600 text-white hover:cursor-pointer hover:bg-blue-700'>Login </Link>
         <Link to="/register" className=' rounded-4xl p-2 bg-blue-600 text-white hover:cursor-pointer hover:bg-blue-700'> Register</Link>
+      <Link to='/addBin'>Smart bin</Link>
       </div>
 
     </div>
