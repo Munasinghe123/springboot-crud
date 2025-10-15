@@ -5,6 +5,7 @@ import com.example.Smart_Waste_Management_System.Waste_Management.dto.BinStatusD
 import com.example.Smart_Waste_Management_System.Waste_Management.dto.DashboardSummaryDto;
 import com.example.Smart_Waste_Management_System.Waste_Management.dto.LocationWasteDto;
 import com.example.Smart_Waste_Management_System.Waste_Management.dto.TotalWasteDto;
+import com.example.Smart_Waste_Management_System.Waste_Management.dto.WasteTypeDto;
 import com.example.Smart_Waste_Management_System.Waste_Management.service.AnalyticsService;
 
 import org.springframework.http.ResponseEntity;
@@ -43,6 +44,30 @@ public class AnalyticsController {
         return ResponseEntity.ok(analyticsService.getTotalWasteMetrics());
     }
 
+    // NEW: Waste type analytics
+    @GetMapping("/waste/type")
+    public ResponseEntity<List<WasteTypeDto>> getWasteByType() {
+        return ResponseEntity.ok(analyticsService.getWasteByType());
+    }
+
+    // NEW: E-waste metrics
+    @GetMapping("/waste/e-waste")
+    public ResponseEntity<Integer> getTotalEWaste() {
+        return ResponseEntity.ok(analyticsService.getTotalEWaste());
+    }
+
+    // NEW: Recyclable waste metrics
+    @GetMapping("/waste/recyclable")
+    public ResponseEntity<Integer> getTotalRecyclableWaste() {
+        return ResponseEntity.ok(analyticsService.getTotalRecyclableWaste());
+    }
+
+    // NEW: Location with most waste
+    @GetMapping("/locations/most-waste")
+    public ResponseEntity<LocationWasteDto> getLocationWithMostWaste() {
+        return ResponseEntity.ok(analyticsService.getLocationWithMostWaste());
+    }
+
     // Chart-specific endpoints (for React charts)
     @GetMapping("/charts/locations")
     public ResponseEntity<List<AnalyticsDto>> getLocationChartData() {
@@ -52,5 +77,11 @@ public class AnalyticsController {
     @GetMapping("/charts/status")
     public ResponseEntity<List<AnalyticsDto>> getStatusChartData() {
         return ResponseEntity.ok(analyticsService.getBinStatusForCharts());
+    }
+
+    // NEW: Waste type chart data
+    @GetMapping("/charts/waste-type")
+    public ResponseEntity<List<AnalyticsDto>> getWasteTypeChartData() {
+        return ResponseEntity.ok(analyticsService.getWasteByTypeForCharts());
     }
 }

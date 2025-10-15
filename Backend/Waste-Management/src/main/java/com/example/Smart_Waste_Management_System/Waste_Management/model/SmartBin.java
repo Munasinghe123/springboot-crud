@@ -16,6 +16,8 @@ public class SmartBin {
     private int currentLevel;
     private int capacity;
     private String status;
+    private String wasteType; // NEW: to categorize waste types (e.g., "e-waste", "recyclable", "organic",
+                              // "general")
     private LocalDateTime lastCollected;
     private LocalDateTime createdAt;
     private LocalDateTime lastUpdated;
@@ -71,6 +73,14 @@ public class SmartBin {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getWasteType() {
+        return wasteType;
+    }
+
+    public void setWasteType(String wasteType) {
+        this.wasteType = wasteType;
     }
 
     public LocalDateTime getLastCollected() {

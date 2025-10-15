@@ -8,7 +8,8 @@ const AddSmartBin = () => {
     longitude: '',
     capacity: 100,
     currentLevel: 0,
-    status: 'EMPTY'
+    status: 'EMPTY',
+    wasteType: 'general' // NEW: default waste type
   });
 
   const [loading, setLoading] = useState(false);
@@ -50,7 +51,8 @@ const AddSmartBin = () => {
         longitude: '',
         capacity: 100,
         currentLevel: 0,
-        status: 'EMPTY'
+        status: 'EMPTY',
+        wasteType: 'general'
       });
     } catch (error) {
       console.error('Error creating SmartBin:', error);
@@ -163,22 +165,42 @@ const AddSmartBin = () => {
           </div>
         </div>
 
-        <div>
-          <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-2">
-            Status
-          </label>
-          <select
-            id="status"
-            name="status"
-            value={formData.status}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="EMPTY">Empty</option>
-            <option value="LOW">Low</option>
-            <option value="MEDIUM">Medium</option>
-            <option value="FULL">Full</option>
-          </select>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-2">
+              Status
+            </label>
+            <select
+              id="status"
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="EMPTY">Empty</option>
+              <option value="LOW">Low</option>
+              <option value="MEDIUM">Medium</option>
+              <option value="FULL">Full</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="wasteType" className="block text-sm font-medium text-gray-700 mb-2">
+              Waste Type
+            </label>
+            <select
+              id="wasteType"
+              name="wasteType"
+              value={formData.wasteType}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="general">General Waste</option>
+              <option value="recyclable">Recyclable</option>
+              <option value="organic">Organic</option>
+              <option value="e-waste">E-Waste</option>
+            </select>
+          </div>
         </div>
 
         <button 
